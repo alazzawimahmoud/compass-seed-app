@@ -3,11 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve & ngtw watch",
+    "build": "ngtw build && ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "tailwind:init": "./node_modules/.bin/ngtw configure",
+    "prestart": "ngtw build",
+    "postinstall": "npm run tailwind:init"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +37,8 @@
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
     "@types/node": "~8.9.4",
+    "ng-tailwindcss": "git+https://github.com/alazzawimahmoud/ng-tailwindcss.git",
+    "tailwindcss": "^0.6.6",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.1"

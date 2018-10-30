@@ -1,14 +1,21 @@
 # CompassSeedApp
 
+Angular app with:
+* Clarity Modules
+* Tailwindcss support
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+*IMPORTANT* : For the ng-tailwind to compile correctly, make sure to prefix filename once the component is generated.
+from: `styleUrls: ['./app.component.css']` to `styleUrls: ['./_app.component.css']`
 
 ## Build
 
