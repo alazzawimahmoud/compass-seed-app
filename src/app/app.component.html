@@ -1,21 +1,124 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="main-container">
+  
+  <clr-alerts>
+    <clr-alert [clrAlertType]="'info'" [clrAlertAppLevel]="true">
+      <clr-alert-item>
+        <span class="alert-text">
+          This is the first app level alert.
+        </span>
+        <div class="alert-actions">
+          <button class="btn alert-action">Fix</button>
+        </div>
+      </clr-alert-item>
+    </clr-alert>
+    <clr-alert [clrAlertType]="'danger'" [clrAlertAppLevel]="true">
+      <clr-alert-item>
+        <span class="alert-text">
+          This is a second app level alert.
+        </span>
+        <div class="alert-actions">
+          <button class="btn alert-action">Fix</button>
+        </div>
+      </clr-alert-item>
+    </clr-alert>
+  </clr-alerts>
 
-<router-outlet></router-outlet>
+  <header class="header header-6">
+    <div class="branding">
+      <a href="#">
+        <clr-icon shape="compass"></clr-icon>
+        <span class="title">Project title</span>
+      </a>
+    </div>
+    <form class="search">
+      <label for="search_input">
+        <input id="search_input" type="text" placeholder="Search for keywords...">
+      </label>
+    </form>
+    <div class="settings">
+      <a href="" class="nav-link nav-icon">
+        <clr-icon shape="cog"></clr-icon>
+      </a>
+    </div>
+  </header>
+  <nav class="subnav" [clr-nav-level]="1">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Label</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Label</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Label</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Label</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-container">
+    <div class="content-area">
+      <div class="example-options">
+        <h6>Heading</h6>
+        <p>Content</p>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true">
+
+      <clr-vertical-nav-group routerLinkActive="active">
+        <a [routerLink]="['./route-name']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+          clrVerticalNavLink>
+          <clr-icon [attr.shape]="'home'" clrVerticalNavIcon></clr-icon>
+          label
+        </a>
+        <ng-template clrIfExpanded>
+          <clr-vertical-nav-group-children>
+            <a routerLinkActive="active" clrVerticalNavLink [routerLink]="['./route-name/route-name']">
+              <clr-icon shape="user" clrVerticalNavIcon></clr-icon>
+              label
+            </a>
+            <a routerLinkActive="active" clrVerticalNavLink [routerLink]="['./route-name/route-name']">
+              <clr-icon shape="users" clrVerticalNavIcon></clr-icon>
+              label
+            </a>
+            <a routerLinkActive="active" clrVerticalNavLink [routerLink]="['./route-name/route-name']">
+              <clr-icon shape="settings" clrVerticalNavIcon></clr-icon>
+              label
+            </a>
+          </clr-vertical-nav-group-children>
+        </ng-template>
+      </clr-vertical-nav-group>
+
+      <clr-vertical-nav-group routerLinkActive="active">
+        <a clrVerticalNavLink>
+          <clr-icon [attr.shape]="'folder-open'" clrVerticalNavIcon></clr-icon>
+          label
+        </a>
+        <ng-template clrIfExpanded>
+          <clr-vertical-nav-group-children>
+            <a routerLinkActive="active" clrVerticalNavLink [routerLink]="['./route-name/route-name']">
+              <clr-icon shape="user" clrVerticalNavIcon></clr-icon>
+              label
+            </a>
+            <a routerLinkActive="active" clrVerticalNavLink [routerLink]="['./route-name/route-name']">
+              <clr-icon shape="users" clrVerticalNavIcon></clr-icon>
+              label
+            </a>
+            <a routerLinkActive="active" clrVerticalNavLink [routerLink]="['./route-name/route-name']">
+              <clr-icon shape="settings" clrVerticalNavIcon></clr-icon>
+              label
+            </a>
+          </clr-vertical-nav-group-children>
+        </ng-template>
+      </clr-vertical-nav-group>
+
+      <a routerLinkActive="active" clrVerticalNavLink [routerLink]="['./route-name/']">
+        <clr-icon shape="certificate" clrVerticalNavIcon></clr-icon>
+        label
+      </a>
+
+    </clr-vertical-nav>
+  </div>
+</div>
